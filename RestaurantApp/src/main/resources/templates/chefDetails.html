@@ -38,6 +38,9 @@
             (<span th:text="${dish.cuisine} + ' ' + ${dish.preparation}"></span>)
         </li>
     </ul>
+    <div th:if="${message}">
+        <p style="color:red;" th:text="${message}"></p>
+    </div>
 </section>
 </body>
 </html>

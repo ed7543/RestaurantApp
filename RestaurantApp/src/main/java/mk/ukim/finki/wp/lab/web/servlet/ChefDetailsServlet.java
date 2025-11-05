@@ -45,6 +45,8 @@ public class ChefDetailsServlet extends HttpServlet {
             return;
         }
 
+        boolean alreadyExists = chef.getDishes().contains(dish);
+
         Chef updatedChef = chefService.addDishToChef(chef.getId(), dish.getDishId());
 
         IWebExchange webExchange = JakartaServletWebApplication
@@ -55,6 +57,10 @@ public class ChefDetailsServlet extends HttpServlet {
         context.setVariable("chef", updatedChef);
         //ontext.setVariable("dish", dish);
         //context.setVariable("chefs", chefs);
+
+        if (alreadyExists) {
+            context.setVariable("message", "This dish is already assigned to the chef!");
+        }
 
         templateEngine.process("chefDetails.html", context, resp.getWriter());
 
