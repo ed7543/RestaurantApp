@@ -43,7 +43,7 @@
     <form action="/servlet/chefDetails" method="POST">
         <input type="hidden" name="chefId" th:value="${chef.getId()}">
         <div th:each="dish: ${dishes}">
-            <input type="radio" name="dishId" th:value="${dish.getDishId()}" required>
+            <input type="radio" name="dishId" th:value="${dish.getDishId()}">
             <span th:text="${dish.getName()}"></span>
         </div>
         <!-- Dynamically display radio buttons for each dish -->

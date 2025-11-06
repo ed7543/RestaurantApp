@@ -41,7 +41,7 @@ public class ChefDetailsServlet extends HttpServlet {
         Chef chef = chefService.findById(chefId);
         Dish dish = dishService.findByDishId(dishId);
         if (chef == null || dish == null) {
-            resp.sendRedirect("/?errorMessage=Chef or dish not found");
+            resp.sendRedirect(req.getContextPath() + "/servlet/listChefs?error=invalid+chef+or+dish+id");
             return;
         }
 

@@ -26,7 +26,7 @@
              and the displayed text should be:
              Name: <firstName> <lastName>, Bio: <bio> -->
         <div th:each="chef: ${chefs}">
-            <input type="radio" name="chefId" th:value="${chef.getId()}" required>
+            <input type="radio" name="chefId" th:value="${chef.getId()}">
             <span th:text="'Name: ' + ${chef.getFirstName()} + ' ' + ${chef.getLastName()} + ', Bio: ' + ${chef.getBio()}"></span>
         </div>
         <!--<input type="radio" name="chefId" value="1"> Chef 1 <br/>
@@ -34,6 +34,9 @@
         <input type="radio" name="chefId" value="3"> Chef 3 <br/> -->
         <input type="submit" value="Submit">
     </form>
+    <div th:if="${param.error}">
+        <p style="color:red;" th:text="${param.error}"></p>
+    </div>
 </main>
 </body>
 </html>

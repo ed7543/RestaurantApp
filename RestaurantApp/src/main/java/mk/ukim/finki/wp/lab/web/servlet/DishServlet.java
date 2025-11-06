@@ -35,14 +35,20 @@ public class DishServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Long chefId = Long.valueOf(req.getParameter("chefId"));
+        String chefIdParam = req.getParameter("chefId");
+
+        if(chefIdParam == null || chefIdParam.isEmpty()) {
+            resp.sendRedirect(req.getContextPath() + "/servlet/listChefs?error=invalid+chef+or+dish+id");
+            return;
+        }
+
+        Long chefId = Long.valueOf(chefIdParam);
+
+       // Long chefId = Long.valueOf(req.getParameter("chefId"));
 
         Chef chef = chefService.findById(chefId);
 
-        if(chef == null) {
-            resp.sendRedirect("/?errorMessage=Chef not found");
-            return;
-        }
+
 
         var dishes = dishService.listDishes();
 
