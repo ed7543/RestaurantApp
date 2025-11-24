@@ -31,10 +31,10 @@ public class ChefServiceImpl implements ChefService {
     }
 
     @Override
-    public Chef addDishToChef(Long chefId, String dishId) {
+    public Chef addDishToChef(Long chefId, Long dishId) {
         Chef chef = this.findById(chefId);
         if (chef != null) {
-            Dish dish = dishRepository.findByDishId(dishId);
+            Dish dish = dishRepository.findById(dishId).orElse(null);
             if (dish != null && !chef.getDishes().contains(dish)) {
                 //chef.getDishes().add(dish);
                 List<Dish> mutableDishes = new ArrayList<>(chef.getDishes());

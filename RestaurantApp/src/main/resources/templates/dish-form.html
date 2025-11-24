@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+
+    <h1 th:text="${dish.id != null} ? 'Edit Dish' : 'Add New Dish'" class="text-primary mb-4"></h1>
+
+    <div th:if="${error}" class="alert alert-danger" th:text="${error}"></div>
+
+    <!-- EDIT form: shown when dish.id is present -->
+    <form th:if="${dish.id != null}"
+          th:action="@{/dishes/edit/{id}(id=${dish.id})}"
+          method="post">
+
+        <div class="mb-3">
+            <label for="dishId" class="form-label">Dish ID</label>
+            <input type="text" class="form-control" id="dishId" name="dishId" th:value="${dish.dishId}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" name="name" th:value="${dish.name}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="cuisine" class="form-label">Cuisine</label>
+            <input type="text" class="form-control" id="cuisine" name="cuisine" th:value="${dish.cuisine}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="preparationTime" class="form-label">Preparation Time</label>
+            <input type="number" class="form-control" id="preparationTime" name="preparationTime"
+                   th:value="${dish.preparationTime}" min="1" required>
+        </div>
+
+        <button type="submit" class="btn btn-success">Update</button>
+        <a href="/dishes" class="btn btn-secondary">Back</a>
+    </form>
+
+    <!-- ADD form: shown when dish.id is absent -->
+    <form th:if="${dish.id == null}"
+          th:action="@{/dishes}"
+          method="post">
+
+        <div class="mb-3">
+            <label for="dishId2" class="form-label">Dish ID</label>
+            <input type="text" class="form-control" id="dishId2" name="dishId" th:value="${dish.dishId}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="name2" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name2" name="name" th:value="${dish.name}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="cuisine2" class="form-label">Cuisine</label>
+            <input type="text" class="form-control" id="cuisine2" name="cuisine" th:value="${dish.cuisine}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="preparationTime2" class="form-label">Preparation Time</label>
+            <input type="number" class="form-control" id="preparationTime2" name="preparationTime"
+                   th:value="${dish.preparationTime}" min="1" required>
+        </div>
+
+        <button type="submit" class="btn btn-success">Add</button>
+        <a href="/dishes" class="btn btn-secondary">Back</a>
+    </form>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

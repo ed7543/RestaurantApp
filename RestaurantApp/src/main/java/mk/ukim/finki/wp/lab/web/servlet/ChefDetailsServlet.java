@@ -47,7 +47,7 @@ public class ChefDetailsServlet extends HttpServlet {
 
         boolean alreadyExists = chef.getDishes().contains(dish);
 
-        Chef updatedChef = chefService.addDishToChef(chef.getId(), dish.getDishId());
+        Chef updatedChef = chefService.addDishToChef(chef.getId(), dish.getId());
 
         IWebExchange webExchange = JakartaServletWebApplication
                 .buildApplication(getServletContext())

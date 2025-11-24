@@ -18,11 +18,11 @@ public class DataHolder {
 
         dishes = new ArrayList<>();
 
-        dishes.add(new Dish("D1", "Pasta Carbonara", "Italian", 25));
-        dishes.add(new Dish("D2", "Sushi Roll", "Japanese", 40));
-        dishes.add(new Dish("D3", "Tacos al Pastor", "Mexican", 30));
-        dishes.add(new Dish("D4", "Butter Chicken", "Indian", 50));
-        dishes.add(new Dish("D5", "French Onion Soup", "French", 60));
+        dishes.add(new Dish(1L, "D1", "Pasta Carbonara", "Italian", 25));
+        dishes.add(new Dish(2L,"D2", "Sushi Roll", "Japanese", 40));
+        dishes.add(new Dish(3L,"D3", "Tacos al Pastor", "Mexican", 30));
+        dishes.add(new Dish(4L,"D4", "Butter Chicken", "Indian", 50));
+        dishes.add(new Dish(5L,"D5", "French Onion Soup", "French", 60));
 
         chefs = new ArrayList<>();
 
