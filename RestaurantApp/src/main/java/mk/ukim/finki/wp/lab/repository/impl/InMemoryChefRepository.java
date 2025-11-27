@@ -26,4 +26,9 @@ public class InMemoryChefRepository implements ChefRepository {
         DataHolder.chefs.add(chef);
         return chef;
     }
+
+    @Override
+    public void deleteById(Long id) {
+        DataHolder.chefs.removeIf(c -> c.getId().equals(id));
+    }
 }

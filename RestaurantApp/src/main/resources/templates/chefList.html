@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Dishes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<div class="container mt-5">
+    <h1 class="text-primary-emphasis">Chefs</h1>
+    <div th:if="${error}" class="alert alert-primary" th:text="${error}"></div>
+
+    <table class="table table-striped mt-3">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Chef ID</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Bio</th>
+            <th>Gender</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="chef : ${chefs}">
+            <td th:text="${chef.id}"></td>
+            <td th:text="${chef.firstName}"></td>
+            <td th:text="${chef.lastName}"></td>
+            <td th:text="${chef.bio}"></td>
+            <td th:text="${chef.gender}"></td>
+            <td>
+                <a th:href="@{'/chefs/chef-form/' + ${chef.id}}" class="btn btn-outline-primary">Edit</a>
+            </td>
+            <td><form th:action="@{'/chefs/delete/' + ${chef.id}}" method="post">
+                <button type="submit" class="btn btn-outline-danger" onclick="return confirm('Are you sure?')">Delete</button>
+            </form></td>
+        </tr>
+        </tbody>
+    </table>
+    <a th:href="@{/chefs/chef-form}" class="btn btn-outline-success">Add New Chef</a>
+</div>
+</body>
+</html>

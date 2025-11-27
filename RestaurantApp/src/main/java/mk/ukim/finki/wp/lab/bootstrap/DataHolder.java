@@ -26,11 +26,11 @@ public class DataHolder {
 
         chefs = new ArrayList<>();
 
-        chefs.add(new Chef(1L, "Gordon", "Ramsey", "Hell's Kitchen chef", List.of(dishes.get(0), dishes.get(4))));
-        chefs.add(new Chef(2L, "Jamie", "Oliver", "Healthy cooking master", List.of(dishes.get(1))));
-        chefs.add(new Chef(3L, "Anthony", "Bourdain", "World traveler and chef", List.of(dishes.get(2), dishes.get(3))));
-        chefs.add(new Chef(4L, "Massimo", "Bottura", "Italian fine-dining chef",  List.of(dishes.get(0))));
-        chefs.add(new Chef(5L, "Nigella", "Lawson", "Home cooking queen", List.of(dishes.get(4))));
+        chefs.add(new Chef(1L, "Gordon", "Ramsey", "Hell's Kitchen chef", List.of(dishes.get(0), dishes.get(4)), "Male"));
+        chefs.add(new Chef(2L, "Jamie", "Oliver", "Healthy cooking master", List.of(dishes.get(1)), "Male"));
+        chefs.add(new Chef(3L, "Anthony", "Bourdain", "World traveler and chef", List.of(dishes.get(2), dishes.get(3)), "Male"));
+        chefs.add(new Chef(4L, "Massimo", "Bottura", "Italian fine-dining chef",  List.of(dishes.get(0)), "Male"));
+        chefs.add(new Chef(5L, "Nigella", "Lawson", "Home cooking queen", List.of(dishes.get(4)), "Male"));
 
 
 

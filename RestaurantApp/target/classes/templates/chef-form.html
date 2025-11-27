@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+
+    <h1 th:text="${chef.id != null} ? 'Edit Chef' : 'Add New Chef'" class="text-primary mb-4"></h1>
+
+    <div th:if="${error}" class="alert alert-danger" th:text="${error}"></div>
+
+    <!-- EDIT form: shown when dish.id is present -->
+    <form th:if="${chef.id != null}"
+          th:action="@{/chefs/edit/{id}(id=${chef.id})}"
+          method="post">
+
+        <div class="mb-3">
+            <label for="firstName" class="form-label">Name</label>
+            <input type="text" class="form-control" id="firstName" name="firstName" th:value="${chef.firstName}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="lastName" class="form-label">Surname</label>
+            <input type="text" class="form-control" id="lastName" name="lastName" th:value="${chef.lastName}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="bio" class="form-label">Bio</label>
+            <input type="text" class="form-control" id="bio" name="bio" th:value="${chef.bio}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="gender" class="form-label">Gender</label>
+            <input type="text" class="form-control" id="gender" name="gender" th:value="${chef.gender}" required>
+        </div>
+
+        <button type="submit" class="btn btn-success">Update</button>
+        <a href="/chefs" class="btn btn-secondary">Back</a>
+    </form>
+
+    <!-- ADD form: shown when dish.id is absent -->
+    <form th:if="${chef.id == null}"
+          th:action="@{/chefs}"
+          method="post">
+
+        <div class="mb-3">
+            <label for="id1" class="form-label">ID</label>
+            <input type="text" class="form-control" id="id1" name="id" th:value="${chef.id}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="firstName1" class="form-label">Name</label>
+            <input type="text" class="form-control" id="firstName1" name="firstName" th:value="${chef.firstName}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="lastName1" class="form-label">Surname</label>
+            <input type="text" class="form-control" id="lastName1" name="lastName" th:value="${chef.lastName}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="bio1" class="form-label">Bio</label>
+            <input type="text" class="form-control" id="bio1" name="bio"
+                   th:value="${chef.bio}" min="1" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="gender1" class="form-label">Gender</label>
+            <input type="text" class="form-control" id="gender1" name="gender"
+                   th:value="${chef.gender}" required>
+        </div>
+
+        <button type="submit" class="btn btn-success">Add</button>
+        <a href="/chefs" class="btn btn-secondary">Back</a>
+    </form>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

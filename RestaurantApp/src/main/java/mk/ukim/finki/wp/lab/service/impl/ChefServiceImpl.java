@@ -45,4 +45,41 @@ public class ChefServiceImpl implements ChefService {
         }
         return chef;
     }
+
+    @Override
+    public Chef create(Long id, String firstName, String lastName, String bio, String gender) {
+        if(id == null || firstName == null || lastName == null || bio == null || gender == null) {
+            throw new RuntimeException("Invalid parameters");
+        }
+
+        if(chefRepository.findById(id).isPresent()) {
+            throw new IllegalArgumentException("Chef with this ID already exists!");
+        }
+
+        Chef chef = new Chef(id, firstName, lastName, bio, gender);
+
+        return this.chefRepository.save(chef);
+    }
+
+    @Override
+    public Chef update(Long id, String firstName, String lastName, String bio, String gender) {
+        if(id == null || firstName == null || lastName == null || bio == null || gender == null) {
+            throw new RuntimeException("Invalid parameters");
+        }
+
+        Chef chef = this.chefRepository.findById(id).orElseThrow(() -> new RuntimeException("Chef with id: " + id + " not found."));
+        chef.setId(id);
+        chef.setFirstName(firstName);
+        chef.setLastName(lastName);
+        chef.setBio(bio);
+        //chef.setDishes(dishes);
+        chef.setGender(gender);
+
+        return this.chefRepository.save(chef);
+    }
+
+    @Override
+    public void delete(Long id) {
+       this.chefRepository.deleteById(id);
+    }
 }
