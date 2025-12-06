@@ -18,5 +18,10 @@ public class Chef {
     private String gender;
 
     public Chef(Long id, String firstName, String lastName, String bio, String gender) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.bio = bio;
+        this.gender = gender;
     }
 }
