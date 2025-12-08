@@ -47,16 +47,16 @@ public class ChefServiceImpl implements ChefService {
     }
 
     @Override
-    public Chef create(Long id, String firstName, String lastName, String bio, String gender) {
-        if(id == null || firstName == null || lastName == null || bio == null || gender == null) {
+    public Chef create(String firstName, String lastName, String bio, String gender) {
+        if(firstName == null || lastName == null || bio == null || gender == null) {
             throw new RuntimeException("Invalid parameters");
         }
 
-        if(chefRepository.findById(id).isPresent()) {
-            throw new IllegalArgumentException("Chef with this ID already exists!");
-        }
+//        if(chefRepository.findById(id).isPresent()) {
+//            throw new IllegalArgumentException("Chef with this ID already exists!");
+//        }
 
-        Chef chef = new Chef(id, firstName, lastName, bio, gender);
+        Chef chef = new Chef(firstName, lastName, bio, gender);
 
         return this.chefRepository.save(chef);
     }

@@ -50,9 +50,9 @@ public class ChefController {
     }
 
     @PostMapping
-    public String saveCHef(@RequestParam Long id, @RequestParam String firstName, @RequestParam String lastName, @RequestParam String bio, @RequestParam String gender) {
+    public String saveCHef(@RequestParam String firstName, @RequestParam String lastName, @RequestParam String bio, @RequestParam String gender) {
         try {
-            chefService.create(id, firstName, lastName, bio, gender);
+            chefService.create(firstName, lastName, bio, gender);
         } catch (IllegalArgumentException e){
             return "redirect:/chefs?error=" + e.getMessage();
         }

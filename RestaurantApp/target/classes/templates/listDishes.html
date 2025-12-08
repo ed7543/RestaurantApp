@@ -25,6 +25,7 @@
             </thead>
             <tbody>
             <tr th:each="dish : ${dishes}">
+                <td th:text="${dish.id}"></td>
                 <td th:text="${dish.dishId}"></td>
                 <td th:text="${dish.name}"></td>
                 <td th:text="${dish.cuisine}"></td>

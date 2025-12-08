@@ -1,6 +1,7 @@
 package mk.ukim.finki.wp.lab.web.controller;
 
 import mk.ukim.finki.wp.lab.model.Dish;
+import mk.ukim.finki.wp.lab.service.ChefService;
 import mk.ukim.finki.wp.lab.service.DishService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,9 +13,11 @@ import java.util.List;
 @RequestMapping("/dishes")
 public class DishController {
     private final DishService dishService;
+    private final ChefService chefService;
 
-    public DishController(DishService dishService) {
+    public DishController(DishService dishService, ChefService chefService) {
         this.dishService = dishService;
+        this.chefService = chefService;
     }
     @GetMapping
     public String getDishesPage(@RequestParam(required = false) String error, Model model) {
@@ -36,6 +39,7 @@ public class DishController {
         }
 
         model.addAttribute("dish", dish);
+        model.addAttribute("chefs", chefService.listChefs());
 
         return "dish-form";
     }
@@ -43,6 +47,7 @@ public class DishController {
     @GetMapping("/dish-form")
     public String getAddDishForm(Model model) {
         model.addAttribute("dish", new Dish());
+        model.addAttribute("chefs", chefService.listChefs());
 
         return "dish-form";
     }

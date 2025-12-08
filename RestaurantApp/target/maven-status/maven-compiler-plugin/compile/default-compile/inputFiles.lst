@@ -1,0 +1,17 @@
+/Users/eva/Desktop/RestaurantApp/RestaurantApp/src/main/java/mk/ukim/finki/wp/lab/RestaurantAppApplication.java
+/Users/eva/Desktop/RestaurantApp/RestaurantApp/src/main/java/mk/ukim/finki/wp/lab/bootstrap/DataHolder.java
+/Users/eva/Desktop/RestaurantApp/RestaurantApp/src/main/java/mk/ukim/finki/wp/lab/model/Chef.java
+/Users/eva/Desktop/RestaurantApp/RestaurantApp/src/main/java/mk/ukim/finki/wp/lab/model/Dish.java
+/Users/eva/Desktop/RestaurantApp/RestaurantApp/src/main/java/mk/ukim/finki/wp/lab/repository/ChefRepository.java
+/Users/eva/Desktop/RestaurantApp/RestaurantApp/src/main/java/mk/ukim/finki/wp/lab/repository/DishRepository.java
+/Users/eva/Desktop/RestaurantApp/RestaurantApp/src/main/java/mk/ukim/finki/wp/lab/repository/impl/InMemoryChefRepository.java
+/Users/eva/Desktop/RestaurantApp/RestaurantApp/src/main/java/mk/ukim/finki/wp/lab/repository/impl/InMemoryDishRepository.java
+/Users/eva/Desktop/RestaurantApp/RestaurantApp/src/main/java/mk/ukim/finki/wp/lab/service/ChefService.java
+/Users/eva/Desktop/RestaurantApp/RestaurantApp/src/main/java/mk/ukim/finki/wp/lab/service/DishService.java
+/Users/eva/Desktop/RestaurantApp/RestaurantApp/src/main/java/mk/ukim/finki/wp/lab/service/impl/ChefServiceImpl.java
+/Users/eva/Desktop/RestaurantApp/RestaurantApp/src/main/java/mk/ukim/finki/wp/lab/service/impl/DishServiceImpl.java
+/Users/eva/Desktop/RestaurantApp/RestaurantApp/src/main/java/mk/ukim/finki/wp/lab/web/controller/ChefController.java
+/Users/eva/Desktop/RestaurantApp/RestaurantApp/src/main/java/mk/ukim/finki/wp/lab/web/controller/DishController.java
+/Users/eva/Desktop/RestaurantApp/RestaurantApp/src/main/java/mk/ukim/finki/wp/lab/web/servlet/ChefDetailsServlet.java
+/Users/eva/Desktop/RestaurantApp/RestaurantApp/src/main/java/mk/ukim/finki/wp/lab/web/servlet/ChefListServlet.java
+/Users/eva/Desktop/RestaurantApp/RestaurantApp/src/main/java/mk/ukim/finki/wp/lab/web/servlet/DishServlet.java

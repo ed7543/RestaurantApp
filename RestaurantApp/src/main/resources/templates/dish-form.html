@@ -68,6 +68,17 @@
                    th:value="${dish.preparationTime}" min="1" required>
         </div>
 
+        <div class="mb-3">
+            <label for="chef" class="form-label">Chef</label>
+            <select class="form-select" id="chef" name="chefId" required>
+                <option th:each="chef : ${chefs}"
+                        th:value="${chef.id}"
+                        th:text="${chef.firstName + ' ' + chef.lastName}"
+                        th:selected="${dish.chef != null} ? ${chef.id} == ${dish.chef.id} : false">
+                </option>
+            </select>
+        </div>
+
         <button type="submit" class="btn btn-success">Add</button>
         <a href="/dishes" class="btn btn-secondary">Back</a>
     </form>
