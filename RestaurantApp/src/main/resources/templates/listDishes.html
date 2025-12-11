@@ -12,6 +12,39 @@
         <h1 class="text-primary-emphasis">Dishes</h1>
         <div th:if="${error}" class="alert alert-primary" th:text="${error}"></div>
 
+        <!-- Search dishes from lab -->
+        <form action="/dishes" method="get" class="row g-3 mb-4">
+            <div class="col-md-3">
+                <input th:type="text" name="name" class="form-control" placeholder="Search by name">
+            </div>
+            <div class="col-md-3">
+                <input th:type="text" name="cuisine" class="form-control" placeholder="Search by cuisine">
+            </div>
+            <div class="col-md-3">
+                <input th:type="number" name="preparationTime" class="form-control" placeholder="Preparation Time">
+            </div>
+            <div class="col-md-2">
+                <input th:type="text" name="name" class="form-control" placeholder="Search by name">
+            </div>
+            <div class="col-md-2">
+                <select name="rank" class="form-select">
+                    <option value="">Any rank</option>
+                    <option value="NORMAL">Normal</option>
+                    <option value="SILVER">Silver</option>
+                    <option value="GOLD">Gold</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <div class="col-md-3">
+                    <input th:type="number" step="0.1" name="rating" class="form-control" placeholder="Minimum Rating">
+                </div>
+            </div>
+
+            <div class="col-12">
+                <button class="btn btn-primary">Search</button>
+                <a href="/dishes" class="btn btn-secondary">Reset</a>
+            </div>
+        </form>
         <table class="table table-striped mt-3">
             <thead>
             <tr>

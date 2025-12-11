@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import mk.ukim.finki.wp.lab.model.enums.RankDishes;
 
 @Entity
 @Data
@@ -18,6 +19,9 @@ public class Dish {
     private String name;
     private String cuisine;
     private int preparationTime;
+    @Enumerated(EnumType.STRING)
+    private RankDishes rank;
+    private double rating;
     @ManyToOne
     @JoinColumn(name = "chef_id")
     private Chef chef;
