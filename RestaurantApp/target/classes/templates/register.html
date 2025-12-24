@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: #f8f9fa;
+        }
+        .card {
+            border-radius: 12px;
+        }
+        .form-control:focus {
+            box-shadow: 0 0 5px rgba(0,123,255,0.5);
+        }
+        .btn-primary {
+            border-radius: 25px;
+        }
+        .btn-light {
+            border-radius: 25px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card p-4 shadow-lg" style="max-width: 400px; width: 100%;">
+        <h2 class="text-center mb-4 fw-bold text-primary">Create Account</h2>
+
+        <form action="/register" method="post">
+            <div class="mb-3">
+                <input type="text" id="username" name="username" class="form-control" placeholder="Username" required>
+            </div>
+
+            <div class="mb-3">
+                <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+            </div>
+
+            <div class="mb-3">
+                <input type="password" id="repeatedPassword" name="repeatPassword" class="form-control" placeholder="Repeat Password" required>
+            </div>
+
+            <div class="mb-3">
+                <input type="text" id="name" name="name" class="form-control" placeholder="Name" required>
+            </div>
+
+            <div class="mb-3">
+                <input type="text" id="surname" name="surname" class="form-control" placeholder="Surname" required>
+            </div>
+
+            <div th:if="${error != null}" class="mb-3 text-danger text-center" th:text="${error}"></div>
+
+            <button class="btn btn-primary w-100 mb-3 py-2" type="submit">Sign Up</button>
+        </form>
+
+        <div class="text-center">
+            <a href="/login" class="btn btn-light w-100 py-2">Already have an account? Login</a>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

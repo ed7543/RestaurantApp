@@ -44,6 +44,25 @@ public class Dish {
         this.preparationTime = preparationTime;
     }
 
+    public Dish(String dishId, String name, String cuisine, int preparationTime, RankDishes rankDishes) {
+        this.dishId = dishId;
+        this.name = name;
+        this.cuisine = cuisine;
+        this.preparationTime = preparationTime;
+        this.rank = rankDishes;
+    }
+
+    public Dish(String dishId, String name, String cuisine, int preparationTime, RankDishes rankDishes, double rating) {
+
+        this.dishId = dishId;
+        this.name = name;
+        this.cuisine = cuisine;
+        this.preparationTime = preparationTime;
+        this.rank = rankDishes;
+        this.rating = rating;
+
+    }
+
 //    public static long getCounter() {
 //        return counter;
 //    }

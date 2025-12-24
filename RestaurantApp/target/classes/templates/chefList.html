@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="utf-8">
     <title>Dishes</title>
@@ -15,7 +15,6 @@
     <table class="table table-striped mt-3">
         <thead>
         <tr>
-            <th>ID</th>
             <th>Chef ID</th>
             <th>Name</th>
             <th>Surname</th>
@@ -31,16 +30,21 @@
             <td th:text="${chef.lastName}"></td>
             <td th:text="${chef.bio}"></td>
             <td th:text="${chef.gender}"></td>
-            <td>
+            <td sec:authorize="hasRole('ADMIN')">
                 <a th:href="@{'/chefs/chef-form/' + ${chef.id}}" class="btn btn-outline-primary">Edit</a>
             </td>
-            <td><form th:action="@{'/chefs/delete/' + ${chef.id}}" method="post">
+            <td sec:authorize="hasRole('ADMIN')"><form th:action="@{'/chefs/delete/' + ${chef.id}}" method="post">
                 <button type="submit" class="btn btn-outline-danger" onclick="return confirm('Are you sure?')">Delete</button>
             </form></td>
         </tr>
         </tbody>
     </table>
-    <a th:href="@{/chefs/chef-form}" class="btn btn-outline-success">Add New Chef</a>
+    <div sec:authorize="hasRole('ADMIN')">
+        <a th:href="@{/chefs/chef-form}" class="btn btn-outline-success">Add New Chef</a>
+    </div>
+
+
+    <a th:href="@{/logout}" class="btn btn-outline-danger">Logout</a>
 </div>
 </body>
 </html>

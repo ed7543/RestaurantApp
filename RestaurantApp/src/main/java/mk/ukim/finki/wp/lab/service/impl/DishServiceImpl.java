@@ -41,7 +41,7 @@ public class DishServiceImpl implements DishService {
     }
 
     @Override
-    public Dish create(String dishId, String name, String cuisine, int preparationTime) {
+    public Dish create(String dishId, String name, String cuisine, int preparationTime, RankDishes rankDishes, double rating) {
         if(dishId == null || name == null || cuisine == null || preparationTime <= 0) {
             throw new RuntimeException("Invalid parameters");
         }
@@ -50,13 +50,13 @@ public class DishServiceImpl implements DishService {
             throw new IllegalArgumentException("Dish with this ID already exists!");
         }
 
-        Dish dish = new Dish(dishId, name, cuisine, preparationTime);
+        Dish dish = new Dish(dishId, name, cuisine, preparationTime, rankDishes, rating);
 
         return this.dishRepository.save(dish);
     }
 
     @Override
-    public Dish update(Long id, String dishId, String name, String cuisine, int preparationTime) {
+    public Dish update(Long id, String dishId, String name, String cuisine, int preparationTime, RankDishes rankDishes, double rating) {
         if(dishId == null || name == null || cuisine == null || preparationTime <= 0) {
             throw new RuntimeException("Invalid parameters");
         }
@@ -67,6 +67,8 @@ public class DishServiceImpl implements DishService {
         dish.setName(name);
         dish.setCuisine(cuisine);
         dish.setPreparation(preparationTime);
+        dish.setRank(rankDishes);
+        dish.setRating(rating);
 
         return this.dishRepository.save(dish);
     }

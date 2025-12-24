@@ -3,6 +3,7 @@ package mk.ukim.finki.wp.lab.web.controller;
 import mk.ukim.finki.wp.lab.model.Chef;
 import mk.ukim.finki.wp.lab.model.Dish;
 import mk.ukim.finki.wp.lab.service.ChefService;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -31,6 +32,7 @@ public class ChefController {
     }
 
     @GetMapping("/chef-form/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public String getEditChefForm(@PathVariable Long id, Model model) {
         Chef chef = chefService.findById(id);
         if(chef == null) {
@@ -43,6 +45,7 @@ public class ChefController {
     }
 
     @GetMapping("/chef-form")
+    @PreAuthorize("hasRole('ADMIN')")
     public String getAddChefForm(Model model) {
         model.addAttribute("chef", new Chef());
 
@@ -50,6 +53,7 @@ public class ChefController {
     }
 
     @PostMapping
+    @PreAuthorize("hasRole('ADMIN')")
     public String saveCHef(@RequestParam String firstName, @RequestParam String lastName, @RequestParam String bio, @RequestParam String gender) {
         try {
             chefService.create(firstName, lastName, bio, gender);
@@ -60,6 +64,7 @@ public class ChefController {
     }
 
     @PostMapping("/edit/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public String editChef(@PathVariable Long id, @RequestParam String firstName, @RequestParam String lastName, @RequestParam String bio, @RequestParam String gender) {
         try {
             chefService.update(id, firstName, lastName, bio, gender);
@@ -70,6 +75,7 @@ public class ChefController {
     }
 
     @PostMapping("/delete/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public String deleteChef(@PathVariable Long id) {
         try {
             chefService.delete(id);

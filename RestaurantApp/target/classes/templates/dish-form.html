@@ -38,6 +38,24 @@
                    th:value="${dish.preparationTime}" min="1" required>
         </div>
 
+        <div class="mb-3">
+            <label for="rating" class="form-label">Rating</label>
+            <input type="number" class="form-control" id="rating" name="rating"
+                   th:value="${dish.rating}" min="1" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="rank" class="form-label">Rank</label>
+            <select class="form-select" id="rank" name="rankDishes" required>
+                <option th:each="rank : ${T(mk.ukim.finki.wp.lab.model.enums.RankDishes).values()}"
+                        th:value="${rank}"
+                        th:text="${rank}"
+                        th:selected="${dish.rank} == ${rank}">
+                </option>
+            </select>
+        </div>
+
+
         <button type="submit" class="btn btn-success">Update</button>
         <a href="/dishes" class="btn btn-secondary">Back</a>
     </form>
@@ -67,6 +85,23 @@
             <input type="number" class="form-control" id="preparationTime2" name="preparationTime"
                    th:value="${dish.preparationTime}" min="1" required>
         </div>
+
+        <div class="mb-3">
+            <label for="rating2" class="form-label">Rating</label>
+            <input type="number" class="form-control" id="rating2" name="rating"
+                   th:value="${dish.rating}" min="1" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="rank2" class="form-label">Rank</label>
+            <select class="form-select" id="rank2" name="rankDishes" required>
+                <option th:each="rank : ${T(mk.ukim.finki.wp.lab.model.enums.RankDishes).values()}"
+                        th:value="${rank}"
+                        th:text="${rank}">
+                </option>
+            </select>
+        </div>
+
 
         <div class="mb-3">
             <label for="chef" class="form-label">Chef</label>
